@@ -8,6 +8,6 @@ package pi4jOperator;
  *
  * @author AlanChung
  */
-public class pi4jMainOperator extends pi4j01GPIO01Output {
+public abstract class pi4j01GPIO01Input extends pi4j01GPIO00Output {
     
 }
