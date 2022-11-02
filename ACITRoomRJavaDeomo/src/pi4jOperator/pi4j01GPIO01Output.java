@@ -33,51 +33,30 @@ public abstract class pi4j01GPIO01Output extends pi4j01GPIO01Input {
         }
         return false;
     }
-    //======================================================================================================================================         
-     public boolean GPIO01OuputSetHighFun(){
-           
+      //======================================================================================================================================         
+     public boolean GPIO01OuputSetStatusFun(boolean IsHigh){           
         try{
-            if (GPIOPinOutput == null){
-                return false;
-            }
-            this.GPIOPinOutput.setState(PinState.HIGH);           
-            return true;
+            if (this.GPIOPinOutput != null){
+               this.GPIOPinOutput.setState(IsHigh);          
+                return true;              
+            }                    
         }catch (Exception ex){
              DebugLogFun(new Object(){}.getClass().getEnclosingMethod().getName(),"Main", ex.getMessage());
         }
         return false;
      }
      //======================================================================================================================================        
-      public boolean GPIO01OuputSetToggleFun(){
-           
+      public boolean GPIO01OuputSetToggleFun(){           
         try{
-            if (GPIOPinOutput == null){
-                return false;
-            }
-            this.GPIOPinOutput.toggle();
-            
-            return true;
+            if (GPIOPinOutput != null){
+               this.GPIOPinOutput.toggle();           
+                return true;
+            }      
         }catch (Exception ex){
              DebugLogFun(new Object(){}.getClass().getEnclosingMethod().getName(),ex.toString(), ex.getMessage());
         }
         return false;
-     }
-     
-     //======================================================================================================================================          
-      public boolean GPIO01OuputSetLowFun(){
-           
-        try{
-            if (GPIOPinOutput == null){
-                return false;
-            }
-            this.GPIOPinOutput.setState(PinState.LOW);
-            
-            return true;
-        }catch (Exception ex){
-             DebugLogFun(new Object(){}.getClass().getEnclosingMethod().getName(),ex.toString(), ex.getMessage());
-        }
-        return false;
-     }
-        //======================================================================================================================================  
+     }    
+     //======================================================================================================================================       
     
 }
