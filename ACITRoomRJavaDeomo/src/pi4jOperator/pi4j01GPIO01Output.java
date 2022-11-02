@@ -16,9 +16,10 @@ import com.pi4j.io.gpio.RaspiPin;
  */
 public abstract class pi4j01GPIO01Output extends pi4j01GPIO01Input {
      
-    private GpioPinDigitalOutput  GPIOPinOutput = null; 
+ 
     
-     //======================================================================================================================================                
+     //======================================================================================================================================      
+     private GpioPinDigitalOutput  GPIOPinOutput = null; 
      public boolean GPIOPin01OutputInitialFun(boolean IsHigh){
         try{           
             if (IsHigh == true){
