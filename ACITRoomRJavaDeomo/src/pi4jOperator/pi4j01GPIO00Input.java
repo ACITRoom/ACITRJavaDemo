@@ -29,21 +29,20 @@ public abstract class pi4j01GPIO00Input extends pi4j00operator {
         try{             
             this.GPIOPinInput = this.gpio.provisionDigitalInputPin(RaspiPin.GPIO_00, PinPullResistance.PULL_DOWN);           
             this.GPIOPinInput.addListener((GpioPinListenerDigital) (GpioPinDigitalStateChangeEvent event) -> {
-                String PinName1 = event.getPin().getName();
-                if (PinName1.contains(PinName1) == true){
-                    if (event.getState() == PinState.HIGH){
-                        DebugLogFun(new Object(){}.getClass().getEnclosingMethod().getName(),"======>>> PinName="+PinName1,"High State");
-                     
-                    }
-                    else  if (event.getState() == PinState.LOW){
-                        DebugLogFun(new Object(){}.getClass().getEnclosingMethod().getName(),"======>>> PinName="+PinName1,"Low State");
-                       
-                    }      
-                     if (event.getEdge() == PinEdge.FALLING){
-                        DebugLogFun(new Object(){}.getClass().getEnclosingMethod().getName(),"======>>> PinName="+PinName1,"FALLING");
-                      
-                    }  
+                String PinName = event.getPin().getName();                 
+                if (event.getState() == PinState.HIGH){
+                    DebugLogFun(new Object(){}.getClass().getEnclosingMethod().getName(),"======>>> PinName="+PinName,"State: HIGH");                     
                 }
+                else  if (event.getState() == PinState.LOW){
+                    DebugLogFun(new Object(){}.getClass().getEnclosingMethod().getName(),"======>>> PinName="+PinName,"State: LOW");                       
+                }  
+                //-------------------------------------------------------------------------------------------------------------------------  
+                if (event.getEdge() == PinEdge.RISING){
+                    DebugLogFun(new Object(){}.getClass().getEnclosingMethod().getName(),"======>>> PinName="+PinName,"Edge: RISING");
+                }   
+                else if (event.getEdge() == PinEdge.FALLING){
+                    DebugLogFun(new Object(){}.getClass().getEnclosingMethod().getName(),"======>>> PinName="+PinName,"Edge: FALLING");                        
+                }    
             });   // create GPIO listener
             return true;
         }catch (SecurityException ex){
@@ -51,5 +50,5 @@ public abstract class pi4j01GPIO00Input extends pi4j00operator {
         }
         return false;
     }
-    
+     //====================================================================================================================================
 }

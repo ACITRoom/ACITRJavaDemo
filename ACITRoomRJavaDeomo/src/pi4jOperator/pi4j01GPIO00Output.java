@@ -23,10 +23,10 @@ public abstract class pi4j01GPIO00Output extends pi4j01GPIO00Input {
      public boolean GPIOPin00OutputInitialFun(boolean IsHigh){
         try{           
             if (IsHigh == true){
-                this.GPIOPinOutput =  gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "GPIO 00", PinState.HIGH);                   
+                this.GPIOPinOutput =  gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "GPIO00", PinState.HIGH);                   
             }
             else {
-                this.GPIOPinOutput =  gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "GPIO 00", PinState.LOW);  
+                this.GPIOPinOutput =  gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "GPIO00", PinState.LOW);  
             }                    
             return true;
         }catch (Exception ex){
@@ -35,7 +35,7 @@ public abstract class pi4j01GPIO00Output extends pi4j01GPIO00Input {
         return false;
     }
     //======================================================================================================================================         
-     public boolean GPIOOuputSetHighFun(){
+     public boolean GPIO00OuputSetHighFun(){
            
         try{
             if (GPIOPinOutput == null){
@@ -49,7 +49,7 @@ public abstract class pi4j01GPIO00Output extends pi4j01GPIO00Input {
         return false;
      }
      //======================================================================================================================================        
-      public boolean GPIOOuputSetToggleFun(){
+      public boolean GPIO00OuputSetToggleFun(){
            
         try{
             if (GPIOPinOutput == null){
@@ -65,7 +65,7 @@ public abstract class pi4j01GPIO00Output extends pi4j01GPIO00Input {
      }
      
      //======================================================================================================================================          
-      public boolean GPIOOuputSetLowFun(){
+      public boolean GPIO00OuputSetLowFun(){
            
         try{
             if (GPIOPinOutput == null){
