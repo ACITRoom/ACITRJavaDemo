@@ -21,13 +21,12 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 public abstract class pi4j01GPIO00Input extends pi4j00operator {
     
     
-    
-    private final GpioController gpio = GpioFactory.getInstance();    
+ 
     private GpioPinDigitalInput  GPIOPinInput = null;  
     //====================================================================================================================================
     public boolean GPIOPin00InputInitialFun(){
         try{             
-            this.GPIOPinInput = this.gpio.provisionDigitalInputPin(RaspiPin.GPIO_00, PinPullResistance.PULL_DOWN);           
+            this.GPIOPinInput =  GpioFactory.getInstance().provisionDigitalInputPin(RaspiPin.GPIO_00, PinPullResistance.PULL_DOWN);           
             this.GPIOPinInput.addListener((GpioPinListenerDigital) (GpioPinDigitalStateChangeEvent event) -> {
                 String PinName = event.getPin().getName();                 
                 if (event.getState() == PinState.HIGH){

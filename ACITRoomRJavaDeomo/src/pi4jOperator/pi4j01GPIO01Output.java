@@ -15,18 +15,17 @@ import com.pi4j.io.gpio.RaspiPin;
  * @author AlanChung
  */
 public abstract class pi4j01GPIO01Output extends pi4j01GPIO01Input {
-    
-    private final GpioController gpio = GpioFactory.getInstance();    
+     
     private GpioPinDigitalOutput  GPIOPinOutput = null; 
     
      //======================================================================================================================================                
      public boolean GPIOPin01OutputInitialFun(boolean IsHigh){
         try{           
             if (IsHigh == true){
-                this.GPIOPinOutput =  gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "GPIO01", PinState.HIGH);                   
+                this.GPIOPinOutput =  GpioFactory.getInstance().provisionDigitalOutputPin(RaspiPin.GPIO_01, "GPIO01", PinState.HIGH);                   
             }
             else {
-                this.GPIOPinOutput =  gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "GPIO01", PinState.LOW);  
+                this.GPIOPinOutput =  GpioFactory.getInstance().provisionDigitalOutputPin(RaspiPin.GPIO_01, "GPIO01", PinState.LOW);  
             }                    
             return true;
         }catch (Exception ex){
